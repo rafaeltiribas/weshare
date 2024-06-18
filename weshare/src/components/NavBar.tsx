@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
-import suaonglogo from "/suaong-logo.png";
+import suaonglogo from "/suaong-logo.webp";
 import cart from "/cart.png";
 
 function NavBar() {
-    return (
+  return (
       <>
         <div className="container mt-3 mb-2">
           <div className="row">
             <div className="col-3 d-flex align-items-center">
               <Link to="/" style={{ textDecoration: "none", fontSize: "16px" }}>
                 <img className="d-none d-md-block" src={suaonglogo} style={{ width: "70px" }} />
-                Hortifruti
+                WeShare
               </Link>
             </div>
             <div className="col-6">
@@ -41,11 +41,17 @@ function NavBar() {
                     Carrinho
                   </Link>
                 </li>
+                <li className="d-flex justify-content-center">
+                  R$ {10.00.toLocaleString("pt-BR", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                    useGrouping: true,
+                  })}
+                </li>
               </ul>
             </div>
           </div>
         </div>
-  
         <div className="bg-danger" style={{ padding: "3px" }}></div>
       </>
     );

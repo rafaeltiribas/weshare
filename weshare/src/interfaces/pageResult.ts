@@ -1,5 +1,5 @@
 interface PageResult<T> {
-    NonGovTotal: number;
+    nongovTotal: number;
     totalOfPages: number;
     currentPage: number;
     items: T[];

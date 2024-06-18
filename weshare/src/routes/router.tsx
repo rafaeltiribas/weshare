@@ -1,14 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import CarrinhoPage from '../pages/CashoutPage';
+import CashoutPage from '../pages/CashoutPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import Layout from './Layout';
-import CadastroDeProdutosPage from '../pages/SignupPage';
-import ListaDeProdutosPage from '../pages/ListaDeProdutosPage';
-import ErrorPage from '../pages/ErrorPage';
-import CardsDeProdutosPage from '../pages/CardsDeProdutosPage';
 import SignupPage from '../pages/SignupPage';
-import CashoutPage from '../pages/CashoutPage';
+import PaginationListNongov from '../pages/PaginationListNongov';
+import ErrorPage from '../pages/ErrorPage';
+import NonGovCardsPage from '../pages/NonGovCardsPage';
 
 const router = createBrowserRouter([
     {
@@ -26,7 +24,7 @@ const router = createBrowserRouter([
                     }
                 ]
             },
-            { path: "listar-produtos", element: <ListaDeProdutosPage /> },
+            { path: "listar-produtos", element: <PaginationListNongov /> },
             { path: "login", element: <LoginPage /> },            
             { path: "cadastrar-produto", element: <SignupPage /> },            
             { path: "carrinho", element: <CashoutPage /> },            
