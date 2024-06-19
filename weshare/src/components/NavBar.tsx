@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import suaonglogo from "/suaong-logo.webp";
 import cart from "/cart.png";
+// criar mais stylesheet e importar aqui
 
 function NavBar() {
   return (

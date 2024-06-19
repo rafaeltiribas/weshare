@@ -1,0 +1,26 @@
+.bgimage{
+    background: url('../images/humanitario-pano.webp') center 30% / cover no-repeat fixed;
+    height: 350px;
+}
+
+.footer {
+    background-color: gray;
+    color: #efefef;
+    padding: 30px 0 ;
+}
+
+.footer a{
+    color: #639bcf;
+}
+
+.footer a:hover {
+    color: #d8e6f3;
+}
+
+.link-padrao {
+    text-decoration: none; /* Remove o sublinhado padrão */
+    color: inherit; /* Herda a cor do texto do elemento pai */
+    /* Outros estilos que você deseja remover ou modificar */
+}
+
+
