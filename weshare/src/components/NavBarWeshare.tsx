@@ -17,19 +17,19 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="menu">
                     <div className="navbar-nav mr-auto">
-                    <a className="nav-link nav-item">WeShare</a>
-                    <a className="nav-link nav-item" href="#">Saiba mais</a>
-                    <a className="nav-link nav-item" href="contato.html">Contato</a>
+                    <a className="nav-link nav-item" href="">WeShare</a>
+                    <a className="nav-link nav-item" href="">Saiba mais</a>
+                    <a className="nav-link nav-item" href="">Contato</a>
                     <div className="dropdown-menu">
-                        <a className="dropdown-item" href="#">Ongs</a>
+                        <a className="dropdown-item" href="">Ongs</a>
                     </div>
                     </div>
 
                     <div className="navbar-nav">
-                    <a className="nav-link nav-item" href="#pedidos">Minhas ONG's</a>
-                    <a className="nav-link nav-item" href="entrar.html">
+                    <a className="nav-link nav-item" href="">Minhas ONG's</a>
+                    <a className="nav-link nav-item" href="">
                         <i className="fa-solid fa-right-to-bracket"></i> Entrar</a>
-                        <a className="nav-link nav-item" href="cadastro.html"> Cadastro</a>
+                        <a className="nav-link nav-item" href=""> Cadastro</a>
                     </div>                
                 </div>
             </div>
