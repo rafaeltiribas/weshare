@@ -7,6 +7,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "./index.css";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./components/css/all.css";
+import "./components/css/styles.css";
+import "./components/css/bootstrap.css";
 
 const client = new QueryClient({
   defaultOptions: {

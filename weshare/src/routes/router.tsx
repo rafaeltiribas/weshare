@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import CashoutPage from '../pages/CashoutPage';
-import HomePage from '../pages/HomePage';
+import HomePage from '../pages/HomePageWeShare';
 import LoginPage from '../pages/LoginPage';
 import Layout from './Layout';
 import SignupPage from '../pages/SignupPage';
