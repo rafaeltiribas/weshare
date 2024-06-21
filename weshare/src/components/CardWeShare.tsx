@@ -6,11 +6,12 @@ interface Props {
   title: string;
   category: string;
   footer: ReactNode;
+  className?: string; // Adiciona uma prop para classes adicionais
 }
 
-const Card = ({ image, title, category, footer }: Props) => {
+const Card = ({ image, title, category, footer, className }: Props) => {
   return (
-    <div className="card h-100 border-0">
+    <div className={`card h-100 border-0 ${className}`}>
       <img src={image} className="card-img-top" alt={title} />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>

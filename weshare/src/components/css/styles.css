@@ -23,21 +23,21 @@
     /* Outros estilos que você deseja remover ou modificar */
 }
 
-/*
+/* styles.css ou outro arquivo CSS */
 .large-card {
-    width: 300px;
-    height: 400px;
-  }
-  
-  .large-card img {
-    height: 200px;
-    object-fit: cover;
-  }
-  */
+  height: 400px; /* Ajuste a altura conforme necessário */
+  width: 100%;
+}
 
+.large-card .card-img-top {
+  height: 200px; /* Ajuste a altura da imagem conforme necessário */
+  object-fit: cover; /* Ajusta a imagem para cobrir a área */
+}
+
+  /*
   .large-card {
     width: 300px;
-    height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
+    height: auto; 
   }
   
   .large-card img {
@@ -45,7 +45,8 @@
     height: 200px;
     object-fit: cover;
   }
-  
+  */
+
   .card-title a {
     text-decoration: none;
     color: inherit;

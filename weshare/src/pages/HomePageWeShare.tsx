@@ -41,8 +41,13 @@ const HomePage = () => {
             </NavLink>
           </div>
         </div>
-        <div className="col-lg-10">
-          <Outlet />
+      </div>
+
+      <div className="d-flex justify-content-center align-items-center vh-100">
+        <div className="container">
+          <div>
+            <Outlet />
+          </div>
         </div>
       </div>
 
