@@ -18,9 +18,8 @@ const HomePage = () => {
       </div>
 
       <div className="row">
-        <div className="col-lg-2">
-          <h5>Categories</h5>
-          <div className="nav flex-column nav-pills">
+        <div className="col">
+          <div className="nav nav-pills flex-row justify-content-center">
             <NavLink aria-current="page" className="nav-link" to="/">
               All
             </NavLink>
