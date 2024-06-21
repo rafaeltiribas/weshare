@@ -69,3 +69,16 @@
   margin-right: 0; /* Remove o espaçamento do último item */
 }
 
+/* styles.css ou outro arquivo CSS */
+.btn-orange {
+  background-color: orange;
+  border-color: orange;
+  color: white; /* Para garantir que o texto fique visível */
+}
+
+.btn-orange:hover {
+  background-color: darkorange; /* Cor ao passar o mouse */
+  border-color: darkorange;
+}
+
+
