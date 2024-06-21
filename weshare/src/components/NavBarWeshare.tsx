@@ -10,7 +10,7 @@ function NavBar() {
       <>
         <nav className="navbar navbar-light bg-light navbar-expand-md">
             <div  className="container">
-                <img className="d-none d-md-block" src={suaonglogo} style={{ width: "100px" }} />
+                <img className="d-none d-md-block" src={suaonglogo} style={{ width: "90px" }} />
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#menu"
                         aria-controls="menu" aria-expanded="false" aria-label="Botão de navegação">
                     <span className="navbar-toggler-icon"></span>
