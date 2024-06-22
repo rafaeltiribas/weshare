@@ -1,4 +1,4 @@
-//import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import suaonglogo from "/suaong-logo.webp";
 import "./css/all.css";
 import "./css/styles.css";
@@ -17,7 +17,9 @@ function NavBar() {
                 </button>
                 <div className="collapse navbar-collapse" id="menu">
                     <div className="navbar-nav mr-auto">
-                    <a className="nav-link nav-item" href="">WeShare</a>
+                    <NavLink aria-current="page" className="nav-link" to="/">
+                        WeShare
+                    </NavLink>
                     <a className="nav-link nav-item" href="">Saiba mais</a>
                     <a className="nav-link nav-item" href="">Contato</a>
                     <div className="dropdown-menu">
@@ -29,11 +31,15 @@ function NavBar() {
                     <a className="nav-link nav-item" href="">Minhas ONG's</a>
                     <a className="nav-link nav-item" href="">
                         <i className="fa-solid fa-right-to-bracket"></i> Entrar</a>
+                        <NavLink aria-current="page" className="nav-link" to="/nongov-list">
+                            List
+                        </NavLink>
                         <a className="nav-link nav-item" href=""> Cadastro</a>
                     </div>                
                 </div>
             </div>
         </nav>
+        
       </>
     );
   }

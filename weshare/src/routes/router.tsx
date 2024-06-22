@@ -24,7 +24,7 @@ const router = createBrowserRouter([
                     }
                 ]
             },
-            { path: "listar-produtos", element: <PaginationListNongov /> },
+            { path: "nongov-list", element: <PaginationListNongov /> },
             { path: "login", element: <LoginPage /> },            
             { path: "cadastrar-produto", element: <SignupPage /> },            
             { path: "carrinho", element: <CashoutPage /> },            

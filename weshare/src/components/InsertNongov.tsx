@@ -2,16 +2,16 @@ import { useForm } from "react-hook-form";
 import databaseAdd from "../assets/skin/database_add.png";
 import databaseEdit from "../assets/skin/database_edit.png";
 import databaseCancel from "../assets/skin/multiply.png";
-import Produto from "../interfaces/nongov";
-import Categoria from "../interfaces/category";
-import useCadastrarProduto from "../hooks/useSignUpNongov";
+import Nongov from "../interfaces/nongov";
+import Category from "../interfaces/category";
+import useSignUpNongov from "../hooks/useSignUpNongov";
 import { useEffect } from "react";
 import { z } from "zod";
-import dataValida from "../util/checkDate";
+import checkDate from "../util/checkDate";
 import { zodResolver } from "@hookform/resolvers/zod";
-import useProdutoStore from "../util/nongovStore";
+import useNongovStore from "../util/nongovStore";
 import dayjs from "dayjs";
-import useAlterarProduto from "../hooks/useUpdateNongov";
+import useUpdateNongov from "../hooks/useUpdateNongov";
 
 // interface FormProduto {
 //   nome: string;
@@ -41,13 +41,7 @@ const schema = z.object({
     .string()
     .min(1, { message: "A data de cadastro deve ser informada." })
     .regex(regexData, { message: "Data inválida." })
-    .refine(dataValida, { message: "Data inválida." }),
-  preco: z
-    .number({ invalid_type_error: "O preço deve ser informado." })
-    .min(0.1, { message: "O preço deve ser maior ou igual a R$ 0.10" }),
-  qtd_estoque: z
-    .number({ invalid_type_error: "A quantidade em estoque deve ser informada." })
-    .min(0, { message: "A quantidade em estoque deve ser maior do que zero." }),
+    .refine(checkDate, { message: "Data inválida." }),
   imagem: z
     .string()
     .min(1, { message: "A imagem deve ser informada." })
@@ -56,8 +50,8 @@ const schema = z.object({
 });
 
 const InsertNongov = () => {
-  const produtoSelecionado = useProdutoStore((s) => s.selectedNonGov);
-  const setProdutoSelecionado = useProdutoStore((s) => s.setSelectedNonGov);
+  const produtoSelecionado = useNongovStore((s) => s.selectedNonGov);
+  const setProdutoSelecionado = useNongovStore((s) => s.setSelectedNonGov);
 
   type FormProduto = z.infer<typeof schema>;
 
@@ -73,7 +67,7 @@ const InsertNongov = () => {
   useEffect(() => {
     setFocus("nome");
     reset();
-    setProdutoSelecionado({} as Produto);
+    setProdutoSelecionado({} as Nongov);
   }, [isSubmitSuccessful]);
 
   useEffect(() => {
@@ -88,8 +82,8 @@ const InsertNongov = () => {
     }
   }, [produtoSelecionado]);
 
-  const { mutate: cadastrarProduto, error: errorCadastrarProduto } = useCadastrarProduto();
-  const { mutate: alterarProduto, error: errorAlterarProduto } = useAlterarProduto();
+  const { mutate: cadastrarProduto, error: errorCadastrarProduto } = useSignUpNongov();
+  const { mutate: alterarProduto, error: errorAlterarProduto } = useUpdateNongov();
 
   const onSubmit = ({
     nome,
@@ -98,11 +92,11 @@ const InsertNongov = () => {
     data_cadastro,
     imagem
   }: FormProduto) => {
-    const produto: Produto = {
+    const produto: Nongov = {
       name: nome,
       description: descricao,
       image: imagem,
-      category: { id: parseInt(categoria) } as Categoria,
+      category: { id: parseInt(categoria) } as Category,
       signupDate: new Date( // DD/MM/AAAA   AAAA-MM-DD
         data_cadastro.substring(6, 10) +
           "-" +
@@ -186,9 +180,12 @@ const InsertNongov = () => {
                 }
               >
                 <option value="0">Selecione uma categoria</option>
-                <option value="1">Fruta</option>
-                <option value="2">Legume</option>
-                <option value="3">Verdura</option>
+                <option value="1">Animal</option>
+                <option value="2">Child</option>
+                <option value="3">Education</option>
+                <option value="4">Environment</option>
+                <option value="5">Food</option>
+                <option value="6">Health</option>
               </select>
               <div className="invalid-feedback">{errors.categoria?.message}</div>
             </div>
@@ -215,53 +212,7 @@ const InsertNongov = () => {
           </div>
         </div>
       </div>
-
-      <div className="row mb-1">
-        <div className="col-xl-6">
-          <div className="row mb-2">
-            <label htmlFor="preco" className="col-xl-2 fw-bold">
-              Preço
-            </label>
-            <div className="col-xl-10">
-              <input
-                {...register("preco", { valueAsNumber: true })}
-                type="number"
-                step="0.01"
-                min="0"
-                id="preco"
-                className={
-                  errors.preco
-                    ? "form-control form-control-sm is-invalid"
-                    : "form-control form-control-sm"
-                }
-              />
-              <div className="invalid-feedback">{errors.preco?.message}</div>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-6">
-          <div className="row mb-2">
-            <label htmlFor="qtd_estoque" className="col-xl-3 fw-bold">
-              Estoque
-            </label>
-            <div className="col-xl-9">
-              <input
-                {...register("qtd_estoque", { valueAsNumber: true })}
-                type="number"
-                min="0"
-                id="qtd_estoque"
-                className={
-                  errors.qtd_estoque
-                    ? "form-control form-control-sm is-invalid"
-                    : "form-control form-control-sm"
-                }
-              />
-              <div className="invalid-feedback">{errors.qtd_estoque?.message}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+ 
       <div className="row mb-1">
         <div className="col-xl-6">
           <div className="row mb-2">
@@ -280,23 +231,6 @@ const InsertNongov = () => {
                 }
               />
               <div className="invalid-feedback">{errors.imagem?.message}</div>
-            </div>
-          </div>
-        </div>
-        <div className="col-xl-6">
-          <div className="row mb-2">
-            <div className="offset-xl-3 col-xl-9">
-              <div className="form-check pl-0 mt-xl-0 mt-2">
-                <input
-                  {...register("disponivel")}
-                  type="checkbox"
-                  id="disponivel"
-                  className="form-check-input"
-                />
-                <label htmlFor="disponivel" className="form-check-label">
-                  Disponível?
-                </label>
-              </div>
             </div>
           </div>
         </div>
@@ -328,7 +262,7 @@ const InsertNongov = () => {
               </button>
               <button className="btn btn-primary btn-sm d-flex align-items-center " onClick={() => {
                 reset();
-                setProdutoSelecionado({} as Produto);
+                setProdutoSelecionado({} as Nongov);
               }} type="button">
                 <img src={databaseCancel} className="me-1" /> Cancelar
               </button>

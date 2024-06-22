@@ -42,6 +42,9 @@ const HomePage = () => {
         </div>
       </div>
 
+      <br></br>
+      <br></br>
+
       <div className="d-flex justify-content-center align-items-center vh-100">
         <div className="container">
           <div>
@@ -49,6 +52,10 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+
+      <br></br>
+      <br></br>
+      <br></br>
 
       <div className="jumbotron mb-4">
         <h4 className="mb-3">Depoimentos de pessoas que usam o SuaOng</h4>
@@ -79,7 +86,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
+    
       <div className="footer">
         <div className="container">
           <div className="row">
