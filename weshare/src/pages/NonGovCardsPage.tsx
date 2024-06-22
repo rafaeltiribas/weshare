@@ -23,8 +23,8 @@ const NonGovCardsPage = () => {
               image={nongov.image}
               title={nongov.name}
               category={nongov.category.name}
-              footer={<input type="button" className="btn btn-warning btn-sm w-100" value="Contribute" />}
-              className="large-card" // Adiciona a classe personalizada
+              footer={<input type="button" className="btn btn-warning btn-sm w-100" value="Donate" />}
+              className="large-card"
             />
           </div>
         ))}

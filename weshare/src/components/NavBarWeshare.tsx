@@ -18,23 +18,21 @@ function NavBar() {
                 <div className="collapse navbar-collapse" id="menu">
                     <div className="navbar-nav mr-auto">
                     <NavLink aria-current="page" className="nav-link" to="/">
-                        WeShare
+                        <h2>WeShare</h2>
                     </NavLink>
-                    <a className="nav-link nav-item" href="">Saiba mais</a>
-                    <a className="nav-link nav-item" href="">Contato</a>
                     <div className="dropdown-menu">
                         <a className="dropdown-item" href="">Ongs</a>
                     </div>
                     </div>
 
                     <div className="navbar-nav">
-                    <a className="nav-link nav-item" href="">Minhas ONG's</a>
                     <a className="nav-link nav-item" href="">
-                        <i className="fa-solid fa-right-to-bracket"></i> Entrar</a>
+                        <i className="fa-solid fa-right-to-bracket"></i> Login</a>
+                        <a className="nav-link nav-item" href="">Signup</a>
+                        <a className="nav-link nav-item" href="">Donation</a>
                         <NavLink aria-current="page" className="nav-link" to="/nongov-list">
-                            List
+                            Admin
                         </NavLink>
-                        <a className="nav-link nav-item" href=""> Cadastro</a>
                     </div>                
                 </div>
             </div>

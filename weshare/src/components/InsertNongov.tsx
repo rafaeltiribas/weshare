@@ -46,14 +46,13 @@ const schema = z.object({
     .string()
     .min(1, { message: "A imagem deve ser informada." })
     .regex(regexImagem, { message: "Nome de imagem inválido." }),
-  disponivel: z.boolean(),
 });
 
 const InsertNongov = () => {
-  const produtoSelecionado = useNongovStore((s) => s.selectedNonGov);
-  const setProdutoSelecionado = useNongovStore((s) => s.setSelectedNonGov);
+  const selectedNongov = useNongovStore((s) => s.selectedNonGov);
+  const setSelectednongov = useNongovStore((s) => s.setSelectedNonGov);
 
-  type FormProduto = z.infer<typeof schema>;
+  type FormNongov = z.infer<typeof schema>;
 
   const {
     register,
@@ -62,25 +61,25 @@ const InsertNongov = () => {
     setFocus,
     setValue,
     formState: { isSubmitSuccessful, errors },
-  } = useForm<FormProduto>({ resolver: zodResolver(schema) });
+  } = useForm<FormNongov>({ resolver: zodResolver(schema) });
 
   useEffect(() => {
     setFocus("nome");
     reset();
-    setProdutoSelecionado({} as Nongov);
+    setSelectednongov({} as Nongov);
   }, [isSubmitSuccessful]);
 
   useEffect(() => {
     setFocus("nome");
     reset();
-    if (produtoSelecionado.id) {
-      setValue("nome", produtoSelecionado.name);
-      setValue("descricao", produtoSelecionado.description);
-      setValue("categoria", String(produtoSelecionado.category.id));
-      setValue("data_cadastro", dayjs(produtoSelecionado.signupDate).format("DD/MM/YYYY"));
-      setValue("imagem", produtoSelecionado.image);
+    if (selectedNongov.id) {
+      setValue("nome", selectedNongov.name);
+      setValue("descricao", selectedNongov.description);
+      setValue("categoria", String(selectedNongov.category.id));
+      setValue("data_cadastro", dayjs(selectedNongov.signupDate).format("DD/MM/YYYY"));
+      setValue("imagem", selectedNongov.image);
     }
-  }, [produtoSelecionado]);
+  }, [selectedNongov]);
 
   const { mutate: cadastrarProduto, error: errorCadastrarProduto } = useSignUpNongov();
   const { mutate: alterarProduto, error: errorAlterarProduto } = useUpdateNongov();
@@ -91,7 +90,7 @@ const InsertNongov = () => {
     categoria,
     data_cadastro,
     imagem
-  }: FormProduto) => {
+  }: FormNongov) => {
     const produto: Nongov = {
       name: nome,
       description: descricao,
@@ -105,8 +104,8 @@ const InsertNongov = () => {
           data_cadastro.substring(0, 2)
       )
     };
-    if (produtoSelecionado.id) {
-      produto.id = produtoSelecionado.id;
+    if (selectedNongov.id) {
+      produto.id = selectedNongov.id;
       alterarProduto(produto);
     } else {
       cadastrarProduto(produto);
@@ -250,7 +249,7 @@ const InsertNongov = () => {
                 type="submit"
                 className="btn btn-primary btn-sm d-flex align-items-center me-2"
               >
-                {produtoSelecionado.id ? (
+                {selectedNongov.id ? (
                   <>
                     <img src={databaseEdit} className="me-1" /> Alterar
                   </>
@@ -262,7 +261,7 @@ const InsertNongov = () => {
               </button>
               <button className="btn btn-primary btn-sm d-flex align-items-center " onClick={() => {
                 reset();
-                setProdutoSelecionado({} as Nongov);
+                setSelectednongov({} as Nongov);
               }} type="button">
                 <img src={databaseCancel} className="me-1" /> Cancelar
               </button>
