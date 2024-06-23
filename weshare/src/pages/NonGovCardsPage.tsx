@@ -17,7 +17,7 @@ const NonGovCardsPage = () => {
   const [clickedButtons, setClickedButtons] = useState<{ [key: string]: boolean }>({});
 
   const handleDonateClick = (nongov : Nongov) => {
-    addToCart({ id: nongov.id, name: nongov.name, price: 50 });
+    addToCart({ id: nongov.id, name: nongov.name, image: nongov.image, quantity: 1, price: 50 });
     setClickedButtons((prev) => ({ ...prev, [nongov.name]: true }));
   };
 
