@@ -10,6 +10,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./components/css/all.css";
 import "./components/css/styles.css";
 import "./components/css/bootstrap.css";
+import { CartProvider } from './components/CartContext';
 
 const client = new QueryClient({
   defaultOptions: {
@@ -24,7 +25,9 @@ const client = new QueryClient({
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <QueryClientProvider client={client}>
-      <RouterProvider router={router} />
+      <CartProvider>
+        <RouterProvider router={router} />
+      </CartProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );

@@ -28,8 +28,9 @@ function NavBar() {
                     <div className="navbar-nav">
                     <a className="nav-link nav-item" href="">
                         <i className="fa-solid fa-right-to-bracket"></i> Login</a>
-                        <a className="nav-link nav-item" href="">Signup</a>
-                        <a className="nav-link nav-item" href="">Donation</a>
+                        <NavLink aria-current="page" className="nav-link" to="/cart">
+                            <i className="fa-solid fa-heart"></i> Donation
+                        </NavLink>
                         <NavLink aria-current="page" className="nav-link" to="/nongov-list">
                             Admin
                         </NavLink>
