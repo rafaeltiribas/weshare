@@ -1,7 +1,7 @@
 // src/pages/CartPage.tsx
 import React from 'react';
-import deleteIcon from "../assets/skin/multiply.png";
 import { useCart } from '../components/CartContext';
+import { BsFillTrash3Fill   } from 'react-icons/bs'
 
 const CartPage = () => {
   const { cart, updateQuantity, removeFromCart } = useCart();
@@ -63,9 +63,7 @@ const CartPage = () => {
                     <span className="badge bg-primary rounded-pill">R$ {item.price * item.quantity}</span>
                   </td>
                   <td width="12%" className="align-middle text-center">
-                    <button onClick={() => dealRemove(item.id)}>
-                      <img src={deleteIcon} alt="Delete Icon" />
-                    </button>
+                    <button type="button" className="btn btn-danger" onClick={() => dealRemove(item.id)}><BsFillTrash3Fill/></button>
                   </td>
                 </tr>
               ))}

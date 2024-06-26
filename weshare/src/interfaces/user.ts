@@ -1,6 +1,6 @@
 interface User {
-    account: string;
-    password: string;
+    conta: string;
+    senha: string;
 }   
 
 export default User;

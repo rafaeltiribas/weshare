@@ -26,8 +26,9 @@ function NavBar() {
                     </div>
 
                     <div className="navbar-nav">
-                    <a className="nav-link nav-item" href="">
-                        <i className="fa-solid fa-right-to-bracket"></i> Login</a>
+                        <NavLink aria-current="page" className="nav-link" to="/login">
+                            <i className="fa-solid fa-right-to-bracket"></i> Login
+                        </NavLink>
                         <NavLink aria-current="page" className="nav-link" to="/cart">
                             <i className="fa-solid fa-heart"></i> Donation
                         </NavLink>

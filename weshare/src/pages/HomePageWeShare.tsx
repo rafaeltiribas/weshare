@@ -43,18 +43,11 @@ const HomePage = () => {
       </div>
 
       <br></br>
-      <br></br>
-
-      <div className="d-flex justify-content-center align-items-center vh-100">
-        <div className="container">
-          <div>
-            <Outlet />
-          </div>
+      <div className="container">
+         <div>
+          <Outlet />
         </div>
       </div>
-
-      <br></br>
-      <br></br>
       <br></br>
 
       <div className="jumbotron mb-4">
