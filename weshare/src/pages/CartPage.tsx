@@ -52,6 +52,11 @@ const CartPage = () => {
                   </td>
                   <td className='d-flex justify-content-center align-items-center vh-10'>
                     <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    <br></br>
                     <input
                       type="number"
                       value={item.quantity}
