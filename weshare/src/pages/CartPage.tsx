@@ -74,6 +74,10 @@ const CartPage = () => {
                   <div className="mt-3">
                     <h6>Total: R$ {total.toFixed(2)}</h6>
                   </div>
+                  <br></br>
+                  <button type="button" className="btn btn-warning">Finalizar Doação</button>
+                  <br></br>
+                  <br></br>
                 </td>
               </tr>
             </tfoot>
