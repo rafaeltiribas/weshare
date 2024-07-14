@@ -7,6 +7,7 @@ interface QueryString {
   page: number;
   size: number;
   name: string;
+  sortOrder?: "asc" | "desc";  // Parâmetro de ordenação opcional
 }
 
 const useNonGovWithPage = (query: QueryString) => {
@@ -17,8 +18,6 @@ const useNonGovWithPage = (query: QueryString) => {
     queryFn: () =>
       getPage({
         params: {
-          // pagina: query.pagina,
-          // tamanho: query.tamanho
           ...query,
         },
       }),
